@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abrindo o WhatsApp | Brísida e Palião</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0C2738">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preload" href="../fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Playfair Display";font-weight:700;font-style:normal;font-display:swap;src:url(../fonts/playfair-display-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/atkinson-hyperlegible-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-weight:700;font-style:normal;font-display:swap;src:url(../fonts/atkinson-hyperlegible-latin-700-normal.woff2) format("woff2")}
+:root{--ink:#172331;--muted:#46525F;--petrol:#123A52;--paper:#F3F5F4;--marker:#E9C77B;--wa:#17804A;--wa-hover:#116A3C}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:var(--paper);color:var(--ink);
+  font:400 1.1875rem/1.6 "Atkinson Hyperlegible","Segoe UI",Roboto,Arial,sans-serif;padding:24px}
+main{max-width:520px;width:100%;text-align:center}
+.brand{background:#0C2738;border-radius:6px;padding:18px;display:inline-block;line-height:0}
+.brand img{height:64px;width:auto}
+h1{font:700 clamp(1.9rem,6vw,2.5rem)/1.15 "Playfair Display",Georgia,serif;margin:40px 0 12px;letter-spacing:-.01em}
+p{margin:0 0 1em;color:var(--muted)}
+.ring{width:112px;height:112px;margin:36px auto 8px;position:relative}
+.ring svg{width:112px;height:112px;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:8}
+.ring .bg{stroke:#D6DEE3}
+.ring .fg{stroke:var(--wa);stroke-linecap:round;stroke-dasharray:302;stroke-dashoffset:302;animation:fill 3s linear forwards}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font:700 2.4rem "Playfair Display",serif;color:var(--ink)}
+@keyframes fill{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.ring .fg{animation:none;stroke-dashoffset:0}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:64px;padding:0 24px;border-radius:6px;
+  background:var(--wa);color:#fff;font:700 1.2rem/1.2 "Atkinson Hyperlegible",sans-serif;text-decoration:none;margin-top:24px}
+.btn:hover{background:var(--wa-hover)}
+.btn svg{width:26px;height:26px}
+:focus-visible{outline:3px solid var(--marker);outline-offset:3px}
+.aviso{background:#fff;border-left:4px solid var(--marker);padding:14px 18px;text-align:left;margin-top:24px;font-size:1.05rem;color:var(--ink)}
+.back{display:inline-block;margin-top:24px;color:var(--petrol)}
+</style>
+</head>
+<body>
+<main>
+  <div class="brand"><picture><source type="image/webp" srcset="../img/logo.webp"><img src="../img/logo.png" width="306" height="128" alt="Brísida e Palião Firma de Advogados"></picture></div>
+  <h1 id="titulo">Recebemos seus dados<span id="nome"></span>.</h1>
+  <p id="sub">Em instantes o WhatsApp do escritório vai abrir com uma mensagem pronta. É só tocar em enviar.</p>
+  <div class="ring" aria-hidden="true">
+    <svg viewBox="0 0 112 112"><circle class="bg" cx="56" cy="56" r="48"/><circle class="fg" cx="56" cy="56" r="48"/></svg>
+    <b id="count">3</b>
+  </div>
+  <a class="btn" id="go" href="#">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C8.86 3 3.02 8.83 3.02 16c0 2.3.6 4.54 1.75 6.52L3 29l6.65-1.74A13 13 0 0 0 16.04 29C23.2 29 29 23.17 29 16S23.2 3 16.04 3zm0 23.8c-1.98 0-3.92-.53-5.62-1.54l-.4-.24-3.95 1.03 1.05-3.84-.26-.4A10.76 10.76 0 0 1 5.24 16c0-5.95 4.85-10.8 10.8-10.8 5.94 0 10.77 4.85 10.77 10.8 0 5.96-4.83 10.8-10.77 10.8zm5.92-8.08c-.32-.16-1.92-.95-2.22-1.06-.3-.11-.51-.16-.73.16-.21.32-.84 1.06-1.03 1.27-.19.22-.38.24-.7.08-.33-.16-1.38-.51-2.62-1.62-.97-.86-1.62-1.93-1.81-2.25-.19-.33-.02-.5.14-.66.15-.15.33-.38.49-.57.16-.19.21-.33.32-.54.11-.22.05-.41-.03-.57-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.55-.73-.56h-.62c-.22 0-.57.08-.87.41-.3.32-1.14 1.11-1.14 2.71s1.16 3.15 1.33 3.36c.16.22 2.29 3.5 5.55 4.9.78.34 1.38.54 1.85.69.78.25 1.49.21 2.05.13.63-.09 1.92-.78 2.19-1.54.27-.76.27-1.41.19-1.54-.08-.14-.3-.22-.62-.38z"/></svg>
+    Abrir o WhatsApp agora
+  </a>
+  <div class="aviso" id="aviso" hidden></div>
+  <a class="back" href="../">Voltar para a página</a>
+</main>
+<script src="../config.js"></script>
+<script>
+(function(){
+  var C = window.LP_CONFIG || {};
+  var get = function(k){ try { return sessionStorage.getItem(k); } catch(e){ return null; } };
+  var nome = (get("lp_nome") || "").replace(/[<>]/g, "").slice(0, 40);
+  if (nome) document.getElementById("nome").textContent = ", " + nome;
+
+  var num = (C.whatsapp || "").replace(/\D/g, "");
+  var go = document.getElementById("go");
+  if (!num) {
+    var av = document.getElementById("aviso");
+    av.hidden = false;
+    av.textContent = "Número do WhatsApp do escritório ainda não configurado (config.js → whatsapp). Em produção, a conversa abre automaticamente aqui.";
+    document.getElementById("count").textContent = "";
+    go.removeAttribute("href"); go.style.opacity = ".5";
+    return;
+  }
+  var clean = function (v) { return (v || "").replace(/[<>]/g, "").slice(0, 240); };
+  var assunto = clean(get("lp_assunto")), sit = clean(get("lp_situacoes"));
+  var texto = (C.mensagemWhatsApp || "Olá! Vim pelo site do escritório.").replace("{nome}", nome || "").replace(/\s{2,}/g, " ");
+  if (assunto) texto += "\nAssunto: " + assunto + ".";
+  if (sit) texto += "\nO que aconteceu comigo: " + sit + ".";
+  var url = "https://wa.me/" + num + "?text=" + encodeURIComponent(texto);
+  go.href = url;
+
+  var n = 3, el = document.getElementById("count");
+  var t = setInterval(function(){
+    n -= 1; el.textContent = n > 0 ? n : "";
+    if (n <= 0) { clearInterval(t); location.href = url; }
+  }, 1000);
+})();
+</script>
+</body>
+</html>
