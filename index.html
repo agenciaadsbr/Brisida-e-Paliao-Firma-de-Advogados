@@ -169,11 +169,25 @@ p{margin:0 0 1em}
 .sheet-foot p{margin:0;font-size:1.12rem;color:var(--muted);min-height:1.6em}
 .sheet-foot p strong{color:var(--ink)}
 
-/* 02 Situações (simplificada) */
+/* 02 Situações — cards com ícone */
 .situ{background:var(--white)}
-.situ-list{list-style:none;margin:44px auto 40px;padding:0;max-width:760px;display:grid;gap:12px;text-align:left}
-.situ-list li{display:flex;gap:16px;align-items:center;padding:18px 22px;background:var(--stone);border-radius:var(--r);font-size:1.2rem;line-height:1.4}
-.situ-list svg{flex:none;width:30px;height:30px;padding:5px;border-radius:50%;background:var(--navy);color:var(--gold-l)}
+.situ-grid{list-style:none;margin:48px auto 44px;padding:0;max-width:1060px;display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+.situ-card{flex:0 1 320px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 26px 28px;text-align:center;
+  box-shadow:0 18px 36px -28px rgba(15,34,51,.45);position:relative;transition:border-color .2s, transform .2s}
+.situ-card::before{content:"";position:absolute;left:50%;top:-1px;transform:translateX(-50%);width:44px;height:3px;background:var(--gold);border-radius:0 0 2px 2px}
+.situ-card:hover{border-color:var(--gold-l);transform:translateY(-2px)}
+.situ-ic{display:grid;place-items:center;width:68px;height:68px;margin:0 auto 18px;border-radius:50%;background:var(--navy);color:var(--gold-l)}
+.situ-ic svg{width:36px;height:36px}
+.situ-card p{margin:0;font-size:1.18rem;line-height:1.4;font-weight:700;color:var(--ink)}
+@media (max-width:719px){
+  .situ-grid{gap:12px;margin:36px auto 32px}
+  .situ-card{flex:1 1 100%;display:flex;align-items:center;gap:16px;text-align:left;padding:18px 18px}
+  .situ-card::before{left:0;top:50%;transform:translateY(-50%);width:3px;height:44px;border-radius:0 2px 2px 0}
+  .situ-ic{width:56px;height:56px;margin:0;flex:none}
+  .situ-ic svg{width:30px;height:30px}
+  .situ-card p{font-size:1.1rem}
+}
+
 /* 03 Tipos */
 .tipos{background:var(--stone)}
 .tipos header{max-width:44em;margin:0 auto clamp(48px,7vw,88px)}
@@ -262,15 +276,21 @@ p{margin:0 0 1em}
 .orienta-txt .rule{margin-left:auto;margin-right:auto}
 .orienta h2{font-size:clamp(2.2rem,5vw,3.6rem);text-shadow:0 2px 24px rgba(0,0,0,.35)}
 .orienta .lead{margin:22px auto 0;color:#E7ECF0;max-width:34em;text-shadow:0 1px 12px rgba(0,0,0,.5)}
-.pontos-c{list-style:none;margin:44px auto 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-.pontos-c li{display:inline-flex;align-items:center;gap:12px;padding:14px 22px;border:1px solid rgba(217,190,134,.45);border-radius:var(--r);
-  background:rgba(15,34,51,.78);color:#fff;font-size:1.15rem;line-height:1.35;backdrop-filter:blur(3px)}
-.pontos-c li::before{content:"";flex:none;width:10px;height:13px;background:var(--gold);clip-path:polygon(0 0,100% 0,100% 100%,50% 74%,0 100%)}
+.ajuda-grid{list-style:none;margin:48px auto 0;padding:0;max-width:1000px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.ajuda-card{flex:0 1 250px;background:rgba(15,34,51,.78);border:1px solid rgba(217,190,134,.35);border-radius:var(--r);padding:28px 24px 26px;
+  text-align:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:border-color .2s,transform .2s}
+.ajuda-card:hover{border-color:var(--gold-l);transform:translateY(-2px)}
+.ajuda-ic{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 16px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold-l);background:rgba(217,190,134,.08)}
+.ajuda-ic svg{width:32px;height:32px}
+.ajuda-card p{margin:0;color:#fff;font-size:1.15rem;line-height:1.4;font-weight:700}
 .orienta .aviso{margin:36px auto 0;font-size:1.06rem;color:#DCE4EA;max-width:36em;text-shadow:0 1px 10px rgba(0,0,0,.6)}
 .orienta .btn{margin-top:32px}
 @media (max-width:719px){
-  .pontos-c{flex-direction:column;align-items:stretch;gap:10px}
-  .pontos-c li{justify-content:center;text-align:center;font-size:1.1rem}
+  .ajuda-grid{gap:12px;margin-top:36px}
+  .ajuda-card{flex:1 1 100%;display:flex;align-items:center;gap:16px;text-align:left;padding:16px 18px}
+  .ajuda-ic{width:54px;height:54px;margin:0;flex:none}
+  .ajuda-ic svg{width:28px;height:28px}
+  .ajuda-card p{font-size:1.08rem}
   .orienta-bg img{object-position:30% 30%}
 }
 
@@ -464,7 +484,6 @@ p{margin:0 0 1em}
     <nav class="nav" aria-label="Seções da página">
       <a href="#cobrancas">Serviços</a>
       <a href="#rmc-rcc">RMC ou RCC</a>
-      <a href="#como-conferir">Como conferir</a>
       <a href="#escritorio">O escritório</a>
       <a href="#duvidas">Dúvidas</a>
     </nav>
@@ -515,12 +534,27 @@ p{margin:0 0 1em}
   <div class="wrap center">
     <hr class="rule" aria-hidden="true">
     <h2 id="t-situacoes">Isso aconteceu com você?</h2>
-    <ul class="situ-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Apareceu um empréstimo que você não contratou</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Há descontos no benefício que você não reconhece</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>O cartão consignado desconta todo mês e a dívida não diminui</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Surgiu um seguro ou uma associação que você não autorizou</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Você contratou um cartão achando que era empréstimo</span></li>
+    <ul class="situ-grid">
+      <li class="situ-card">
+        <span class="situ-ic"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4h12l6 6v18H9z"/><path d="M21 4v6h6"/><path d="M13 16h9M13 20h6"/><path d="M19 24l5 5M24 24l-5 5"/></svg></span>
+        <p>Apareceu um empréstimo que você não contratou</p>
+      </li>
+      <li class="situ-card">
+        <span class="situ-ic"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h20v26l-3-2-3 2-3-2-3 2-3-2-3 2-2-2z"/><path d="M15 13a3 3 0 1 1 3 3v2"/><path d="M18 22v.5"/></svg></span>
+        <p>Há descontos no benefício que você não reconhece</p>
+      </li>
+      <li class="situ-card">
+        <span class="situ-ic"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="24" height="16" rx="2.5"/><path d="M3 13h24M7 19h6"/><path d="M33 19a6 6 0 1 1-2-4.5"/><path d="M32 11v4h-4"/></svg></span>
+        <p>O cartão consignado desconta todo mês e a dívida não diminui</p>
+      </li>
+      <li class="situ-card">
+        <span class="situ-ic"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 4l11 4v8c0 7-5 12-11 15C12 28 7 23 7 16V8z"/><path d="M13 13l10 10M23 13L13 23"/></svg></span>
+        <p>Surgiu um seguro ou uma associação que você não autorizou</p>
+      </li>
+      <li class="situ-card">
+        <span class="situ-ic"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/><path d="M15 22h16v10H15z"/><path d="M19 27h8"/><path d="M26 9h5v6"/><path d="M10 25H5v-4"/></svg></span>
+        <p>Você contratou um cartão achando que era empréstimo</p>
+      </li>
     </ul>
     <a class="btn btn-wa" href="#contato" data-cta="situacoes">
       <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-wa"/></svg>
@@ -723,59 +757,6 @@ p{margin:0 0 1em}
   </div>
 </section>
 
-<!-- 05 COMO CONFERIR -->
-<section class="sec conferir" id="como-conferir" aria-labelledby="t-conferir">
-  <div class="wrap">
-    <header>
-      <hr class="rule" aria-hidden="true">
-      <h2 id="t-conferir">Como conferir seus descontos</h2>
-      <p class="lead" style="margin-top:20px">O extrato de pagamento e o extrato de empréstimos do INSS mostram os contratos e descontos ligados ao seu benefício. Veja o que observar.</p>
-    </header>
-
-    <div class="conf-grid">
-      <div class="doc" id="doc" aria-hidden="true" data-reveal>
-        <div class="doc-top"><b>Extrato de pagamento</b><span>exemplo<br>ilustrativo</span></div>
-        <div class="doc-meta"><span>Espécie: aposentadoria</span><span>Mês: outubro</span></div>
-        <div class="d-row"><span>Valor do benefício</span><em>+ R$ ••••,••</em></div>
-        <div class="d-sec">DESCONTOS</div>
-        <div class="d-row" data-step="1"><span>Empréstimo (Banco A)</span><em>− R$ •••,••</em><i class="pin">1</i></div>
-        <div class="d-row" data-step="2"><span>Empréstimo (Banco B)</span><em>− R$ •••,••</em><i class="pin">2</i></div>
-        <div class="d-row" data-step="3"><span>Cartão consignado (RMC)</span><em>− R$ •••,••</em><i class="pin">3</i></div>
-        <div class="d-row"><span>Seguro</span><em>− R$ ••,••</em></div>
-        <div class="d-row total" data-step="4"><span>Valor líquido</span><em>R$ ••••,••</em><i class="pin">4</i></div>
-        <div class="note" data-step="5"><i class="pin">5</i>Dúvida em algum item? Busque orientação antes de assinar ou aceitar qualquer proposta.</div>
-      </div>
-
-      <div>
-        <ol class="passos" id="passos">
-          <li data-step="1" tabindex="0"><span>Confira os descontos registrados no benefício.</span></li>
-          <li data-step="2" tabindex="0"><span>Veja se há algum contrato que você não reconhece.</span></li>
-          <li data-step="3" tabindex="0"><span>Observe as cobranças que se repetem todo mês.</span></li>
-          <li data-step="4" tabindex="0"><span>Guarde os extratos e os papéis que receber.</span></li>
-          <li data-step="5" tabindex="0"><span>Busque orientação antes de tomar decisões sobre contratos ou cobranças.</span></li>
-        </ol>
-        <p class="ajuda">Servidor público? Os descontos consignados aparecem no seu contracheque. E se tiver dificuldade com o extrato, a equipe ajuda a entender o que está escrito nele.<br><a class="ctx" href="#contato" data-cta="conferir" data-assunto="ajuda para entender o extrato" style="margin-top:12px">Quero ajuda com meu extrato<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></p>
-      </div>
-    </div>
-
-    <div class="onde">
-      <h3>Onde pegar o extrato</h3>
-      <div class="onde-item">
-        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="13" y="4" width="18" height="36" rx="3"/><path d="M19 34h6M17 12h10M17 17h10M17 22h6"/></svg>
-        <div><b>Meu INSS</b><span>No aplicativo ou no site, em “Extrato de Pagamento” e “Extrato de Empréstimo”.</span></div>
-      </div>
-      <div class="onde-item">
-        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M11 5h8l3.5 8.5-5 3.5a23 23 0 0 0 10.5 10.5l3.5-5L40 26v8a4 4 0 0 1-4 4C19 38 6 25 6 9a4 4 0 0 1 5-4z"/></svg>
-        <div><b>Telefone 135</b><span>Central de atendimento do INSS, para quem não usa aplicativo.</span></div>
-      </div>
-      <div class="onde-item">
-        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 17L22 6l17 11"/><path d="M9 17v18M16 17v18M28 17v18M35 17v18M5 38h34"/></svg>
-        <div><b>Agência do INSS</b><span>Com atendimento agendado e documento de identidade.</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 06 ORIENTAÇÃO -->
 <section class="sec orienta on-dark" id="orientacao" aria-labelledby="t-orienta">
   <picture class="orienta-bg" aria-hidden="true">
@@ -787,12 +768,27 @@ p{margin:0 0 1em}
       <hr class="rule" aria-hidden="true">
       <h2 id="t-orienta">Como ajudamos no seu caso</h2>
       <p class="lead">Cada desconto tem uma origem, e cada contrato tem suas próprias condições. Por isso, cada situação precisa ser analisada individualmente.</p>
-      <ul class="pontos-c">
-        <li>Identificar a origem dos descontos</li>
-        <li>Analisar as condições de contratação</li>
-        <li>Verificar documentos e contratos</li>
-        <li>Avaliar se houve alguma irregularidade</li>
-        <li>Orientar sobre as medidas juridicamente cabíveis</li>
+      <ul class="ajuda-grid">
+        <li class="ajuda-card">
+          <span class="ajuda-ic"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="15" cy="15" r="9"/><path d="M22 22l9 9"/><path d="M11 15h8M15 11v8"/></svg></span>
+          <p>Identificar a origem dos descontos</p>
+        </li>
+        <li class="ajuda-card">
+          <span class="ajuda-ic"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h14l6 6v12"/><path d="M21 4v6h6"/><path d="M7 4v26h11"/><path d="M11 14h10M11 18h8M11 22h5"/><path d="M29 22l-8 8-3 1 1-3 8-8z"/></svg></span>
+          <p>Analisar as condições de contratação</p>
+        </li>
+        <li class="ajuda-card">
+          <span class="ajuda-ic"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a2 2 0 0 1 2-2h8l3 3h15a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 15h30"/><path d="M14 22l3 3 6-6"/></svg></span>
+          <p>Verificar documentos e contratos</p>
+        </li>
+        <li class="ajuda-card">
+          <span class="ajuda-ic"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 4L33 30H3z"/><path d="M18 14v7M18 25v.5"/></svg></span>
+          <p>Avaliar se houve alguma irregularidade</p>
+        </li>
+        <li class="ajuda-card">
+          <span class="ajuda-ic"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 4v28M12 32h12"/><path d="M18 8h11l3 4-3 4H18"/><path d="M18 18H8l-3 4 3 4h10"/></svg></span>
+          <p>Orientar sobre as medidas juridicamente cabíveis</p>
+        </li>
       </ul>
       <p class="aviso">Não existe resposta pronta: o que pode ser feito depende dos documentos e das circunstâncias de cada caso.</p>
       <a class="btn btn-wa" href="#contato" data-cta="orientacao"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-wa"/></svg>Pedir orientação inicial</a>
