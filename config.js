@@ -7,11 +7,11 @@
 window.LP_CONFIG = {
   // WhatsApp oficial do escritório, só números, com DDI 55 + DDD.
   // Ex.: "5535999999999". Enquanto estiver vazio, a página /redirect avisa que o número não foi configurado.
-  whatsapp: "",
+  whatsapp: "5535998924981",
 
   // Mensagem inicial do WhatsApp. {nome} é trocado pelo primeiro nome do lead.
   mensagemWhatsApp:
-    "Olá! Meu nome é {nome}. Vim pelo site do escritório e gostaria de entender alguns descontos no meu benefício.",
+    "vim do google e quero falar com um advogado especialista.",
 
   // Armazenamento dos leads (Supabase / Lovable Cloud). 
   // Projeto Supabase "ADS BR CLIENTES" (tabelas multi-tenant lp_visits / lp_leads).

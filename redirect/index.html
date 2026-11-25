@@ -98,11 +98,8 @@ p{margin:0 0 1em;color:var(--muted)}
     go.removeAttribute("href"); go.style.opacity = ".5";
     return;
   }
-  var clean = function (v) { return (v || "").replace(/[<>]/g, "").slice(0, 240); };
-  var assunto = clean(get("lp_assunto")), sit = clean(get("lp_situacoes"));
-  var texto = (C.mensagemWhatsApp || "Olá! Vim pelo site do escritório.").replace("{nome}", nome || "").replace(/\s{2,}/g, " ");
-  if (assunto) texto += "\nAssunto: " + assunto + ".";
-  if (sit) texto += "\nO que aconteceu comigo: " + sit + ".";
+  // Mensagem fixa (sem nome nem assunto), definida em config.js
+  var texto = C.mensagemWhatsApp || "vim do google e quero falar com um advogado especialista.";
   var url = "https://wa.me/" + num + "?text=" + encodeURIComponent(texto);
   go.href = url;
 
