@@ -8,6 +8,24 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 </script>
+<!-- Google Ads (necessário para a conversão abaixo funcionar) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18595754456"></script>
+<script>gtag('config', 'AW-18595754456');</script>
+<!-- Event snippet for LEAD ADSBR conversion page -->
+<script>
+  (function () {
+    // Dispara 1 vez por lead: só quando veio do formulário e ainda não contou nesta sessão.
+    var ss; try { ss = window.sessionStorage; } catch (e) {}
+    var veioDoForm = ss && ss.getItem("lp_sent");
+    if (ss && (!veioDoForm || ss.getItem("lp_conv_" + veioDoForm))) return;
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18595754456/Ow5TCPHDub8dENjjkqNF',
+        'value': 1.0,
+        'currency': 'BRL'
+    });
+    if (ss) ss.setItem("lp_conv_" + veioDoForm, "1");
+  })();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Abrindo o WhatsApp | Brísida e Palião</title>
